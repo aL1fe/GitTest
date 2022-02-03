@@ -4,3 +4,4 @@
 4
 5
  git clone https://github.com/aL1fe/MyGitTest.git
+ git push https://github.com/aL1fe/MyGitTest.git --delete MyBranch01
