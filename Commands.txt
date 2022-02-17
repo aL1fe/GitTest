@@ -1,0 +1,37 @@
+git config --global user.name "My Name"
+git config --global user.email myEmail@example.com
+git config --global --list
+
+----------------------------
+git init #инициализация локального репозитория
+----------------------------
+git add . #добавить все содержимое текущей папки и ее подпапок в Index
+git add File01.txt "New folder"/File03.txt #добавить отдельные файлы
+
+git add -A #добавить в Index весь репозиторий 
+----------------------------
+git status #просмотреть состоятние Index
+git status -s #сокращенный просмотреть состоятние Index
+----------------------------
+git commit -m "My commit message"
+----------------------------
+
+git branch branchName #создать новую ветку с именем branchName
+
+git checkout branchName #выкачать ветку branchName в свой локальный репозиторий
+
+git branch -D branchName #удалить ветку branchName навсегда
+git branch -d branchName #закрыть ветку branchName(можно потом ее оживить)
+
+git branch -m newName #переименовать текущую ветку
+git branch -m oldName newName #переименовать ветку из любой ветки
+----------------------------
+$ git log master #вывести лог ветки master
+$ git log --max-count=3 master #вывести последние 3 лога
+----------------------------
+git reset --hard f2e333b35a5987ed03ce20fc2dcec002572bf3f5 #резетнуть ветку до нужного хеша
+it reset --hard HEAD отменить изменения во всех файлах включая проиндексированные
+git checkout <имя_файла> тменить изменения в отдельном файле даже если он проиндексирован
+
+git checkout-index <имя_файла> вернуть файл из индекса
+git checkout-index -a вернуть все файлы из индекса
