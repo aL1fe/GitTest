@@ -32,7 +32,7 @@ git branch <branchname> //создать новую ветку с именем b
 git checkout -b <branchname> //создать новую ветку с именем branchName и переключиться в нее
 
 git checkout <branchname> //выкачать ветку branchName в свой локальный репозиторий
-git checkout 34062a0 //выкачать коммит SHA в свой локальный репозиторий (затем необходимо создать ветку чтобы появился указатель на этот коммит)
+git checkout <commit_hash> //выкачать коммит SHA в свой локальный репозиторий (затем необходимо создать ветку чтобы появился указатель на этот коммит)
 
 git branch -D <branchname> //удалить ветку branchName навсегда
 git branch -d <branchname> //закрыть ветку branchName(можно потом ее оживить)
