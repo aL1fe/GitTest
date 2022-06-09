@@ -4,10 +4,10 @@ git help <команда>
 git <команда> --help //Документация по команде
 git <команда> -h //Посмотреть только список команд
 ----------------------------
+git config --global --list //вывести настройки
 git config --global user.name "My Name"
 git config --global user.email myEmail@example.com
 git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin" //установка notepad++ в качестве редактора поумолчанию
-git config --global --list //вывести настройки
 ----------------------------
 git init //инициализация локального репозитория
 dotnet new gitignore //создать gitignore для начала проекта
@@ -32,13 +32,15 @@ git branch <branchname> //создать новую ветку с именем b
 git checkout -b <branchname> //создать новую ветку с именем branchName и переключиться в нее
 
 git checkout <branchname> //выкачать ветку branchName в свой локальный репозиторий
-git checkout <commit_hash> //выкачать коммит SHA в свой локальный репозиторий (затем необходимо создать ветку чтобы появился указатель на этот коммит)
+git checkout <commit_hash> //выкачать коммит SHA в свой локальный репозиторий
 
 git branch -D <branchname> //удалить ветку branchName навсегда
 git branch -d <branchname> //закрыть ветку branchName(можно потом ее оживить)
 
 git branch -m newName //переименовать текущую ветку
 git branch -m oldName newName //переименовать ветку из любой ветки
+
+git cherry-pick <hash>  //скопировать в текущую ветку коммит с указанным хешом
 
 git merge <branchname>  //слить текущую ветку с веткой branchname
 
@@ -60,12 +62,13 @@ git stash drop stash@{x}  //удалить припрятанные измене
 git reset HEAD <имя_файла> <имя_файла> <имя_файла> //отмена индексации файла
  
 git reset --hard HEAD //отменить изменения во всех файлах включая проиндексированные (загрузить файлы из последнего коммита)
-git reset --hard f2e333b35a5987ed03ce20fc2dcec002572bf3f5 //резетнуть ветку до нужного хеша (загрузить файлы из коммита суказанным хешом)
+git reset --hard <hash> //резетнуть ветку до нужного хеша (загрузить файлы из коммита суказанным хешом)
+git reset --hard HEAD^1 //удалить последний коммит, вернуться к состоянию предыдущего коммита
 
-git checkout <имя_файла> //отменить изменения в отдельном файле даже если он проиндексирован
+git checkout <имя_файла> //отменить изменения в отдельном файле даже если он проиндексирован (выкачать файл из коммита)
 
 git checkout-index <имя_файла> //вернуть удаленный файл из индекса
-git checkout-index -a //вернуть все файлы из индекса
+git checkout-index -a //вернуть все удаленные файлы из индекса
 
 git restore --staged <имя_файла> //отменить изменения в index
 git restore --staged * //отменить изменения в index все файлы
